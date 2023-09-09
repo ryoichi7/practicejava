@@ -12,8 +12,8 @@ public class prac1_4 {
             int[] array = new int[length];
             int SumArray = 0;
             int i = 0;
-            int min = 99999;
-            int max = 0;
+            int min = Integer.MAX_VALUE;
+            int max = Integer.MIN_VALUE;
             while (i < length) {
                 if (sc.hasNextInt()) {
                     array[i] = sc.nextInt();

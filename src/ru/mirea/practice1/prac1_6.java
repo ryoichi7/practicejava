@@ -5,7 +5,7 @@ public class prac1_6 {
         double harmonic = 0;
         for (double i = 1; i < 11; ++i){
             harmonic += 1/i;
-            System.out.println(harmonic);
+            System.out.println(String.format("%.2f", harmonic));
         }
     }
 }
