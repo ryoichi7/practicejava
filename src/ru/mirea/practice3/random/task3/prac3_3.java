@@ -1,4 +1,4 @@
-package ru.mirea.practice3.task3;
+package ru.mirea.practice3.random.task3;
 
 public class prac3_3 {
     public static void main(String[] args){

@@ -1,4 +1,4 @@
-package ru.mirea.practice3.task4;
+package ru.mirea.practice3.random.task4;
 
 import java.util.Scanner;
 public class prac3_4 {

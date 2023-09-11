@@ -2,7 +2,7 @@ package ru.mirea.practice2.task4;
 
 import java.util.Objects;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 public class Shop {
     private ArrayList<String> PcArray;
     public void FindPc(String PcName){

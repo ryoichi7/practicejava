@@ -1,4 +1,4 @@
-package ru.mirea.practice3.task1;
+package ru.mirea.practice3.random.task1;
 
 import java.util.Random;
 public class prac3_1 {
