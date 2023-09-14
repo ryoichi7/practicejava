@@ -1,4 +1,4 @@
-package ru.mirea.practice4._1;
+package ru.mirea.practice4._1.task2;
 
 public class Phone {
     public static void main(String[] args){
