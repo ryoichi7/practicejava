@@ -1,11 +1,11 @@
-package ru.mirea.practice10;
+package ru.mirea.practice10.mergeArrs;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Student {
+class Student {
     private String firstName;
     private String lastName;
     private String speciality;
@@ -74,19 +74,30 @@ public class Student {
     }
 }
 
-class SortingStudentsByGPA{
+public class MergeArrays{
 
     public static void main(String[] args) {
-        SortingStudentsByGPA students = new SortingStudentsByGPA();
+        MergeArrays students1 = new MergeArrays();
+        MergeArrays students2 = new MergeArrays();
+        MergeArrays students3 = new MergeArrays();
         Scanner sc = new Scanner(System.in);
         int size = sc.nextInt();
 
-        students.setArray(size);
-        students.outArray();
-        students.quickSortByGPA(0,size - 1);
-        students.outArray();
-        students.quickSortByCourse(0, size - 1);
-        students.outArray();
+        students1.setArray(size);
+        System.out.println("Array1: ");
+        students1.outArray();
+
+        students2.setArray(size);
+        System.out.println("Array2: ");
+        students2.outArray();
+
+        students3.merge(students1,students2);
+        System.out.println("Array3: ");
+        students3.outArray();
+
+        System.out.println("Array3 sorted: ");
+        students3.quickSortByGPA(0, size * 2 - 1);
+        students3.outArray();
     }
     private ArrayList<Student> students = new ArrayList<>();
     public void setArray(int size){
@@ -95,6 +106,11 @@ class SortingStudentsByGPA{
             students.add(new Student("Frank" + i, "McDonald" + i, "speciality" + i, rand.nextInt(1,5),
                     "group" + i, rand.nextInt(1,301)));
         }
+    }
+
+    public void merge(MergeArrays arr1, MergeArrays arr2){
+        this.students.addAll(arr1.students);
+        this.students.addAll(arr2.students);
     }
     public void outArray(){
         for (Student st : students){
@@ -133,49 +149,12 @@ class SortingStudentsByGPA{
             quickSortByGPA(leftBorder, rightMarker);
         }
     }
-
-    public void quickSortByCourse(int leftBorder, int rightBorder){
-        int leftMarker = leftBorder;
-        int rightMarker = rightBorder;
-        Student pivot = students.get((leftMarker + rightMarker) / 2);
-        Comparator<Student> comp = new StudentComparatorCourse();
-        do {
-            while (comp.compare(students.get(leftMarker), pivot) < 0){
-                leftMarker++;
-            }
-            while(comp.compare(students.get(rightMarker), pivot) > 0){
-                rightMarker--;
-            }
-            if (leftMarker <= rightMarker){
-                if (leftMarker < rightMarker){
-                    Student tmp = students.get(leftMarker);
-                    students.set(leftMarker, students.get(rightMarker));
-                    students.set(rightMarker, tmp);
-                }
-                leftMarker++;
-                rightMarker--;
-            }
-        }while(leftMarker <= rightMarker);
-
-        if (leftMarker < rightBorder){
-            quickSortByGPA(leftMarker, rightBorder);
-        }
-        if (leftBorder < rightMarker){
-            quickSortByGPA(leftBorder, rightMarker);
-        }
-    }
 }
 
 class StudentComparatorGPA implements Comparator<Student> {
     @Override
     public int compare(Student o1, Student o2) {
-        return o2.getGPA() - o1.getGPA();
+        return o1.getGPA() - o2.getGPA();
     }
 }
 
-class StudentComparatorCourse implements Comparator<Student> {
-    @Override
-    public int compare(Student o1, Student o2) {
-        return o1.getCourse() - o2.getCourse();
-    }
-}
