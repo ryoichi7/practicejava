@@ -25,7 +25,7 @@ public class Student {
     }
 }
 
-class StudentTest {
+class Test {
     public static void main(String[] args) {
         Student student = new Student("Frank", 123, new Date());
         System.out.println(student);
