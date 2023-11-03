@@ -6,12 +6,14 @@ import java.util.Scanner;
 public class ThrowsDemo {
     public void getKey() {
         Scanner sc = new Scanner(System.in);
-        String key = sc.next();
+        String key = sc.nextLine();
         while (true) {
             try {
                 printDetails(key);
                 break;
             } catch (Exception ignored) {
+                System.out.println(ignored.getMessage());
+                break;
             }
         }
     }
