@@ -65,9 +65,10 @@ class Main {
             firstNames[i] = "FirstName" + i % 5;
             lastNames[i] = "LastName" + i % 4;
         }
-        HashMap hashMap = map.createMap(lastNames,firstNames);
+        HashMap<String, String> hashMap = map.createMap(firstNames,lastNames);
         map.print();
         System.out.println("getSameFirstNameCount - " + map.getSameFirstNameCount());
         System.out.println("getSameLastNameCount - " + map.getSameLastNameCount());
+        System.out.println(hashMap);
     }
 }
